@@ -1,11 +1,35 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { fileURLToPath, URL } from "node:url";
+
+import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@vueuse/nuxt',
-    '@nuxt/image',
-    '@nuxt/fonts'
-  ]
-})
+  css: ["~/assets/css/app.css"],
+  modules: ["@vueuse/nuxt", "@nuxt/image", "@nuxt/fonts"],
+  vite: {
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("./", import.meta.url)),
+      },
+    },
+  },
+
+ fonts: {
+    families: [
+      {
+        name: "Work Sans",
+        provider: "google",
+        weights: [200, 300, 400, 500, 600, 700, 800, 900] // all weights
+      }
+    ]
+  },
+image: {
+    format: ["webp"],
+    provider: "twicpics",
+    twicpics: {
+      baseURL: ""
+    }
+  },
+});
