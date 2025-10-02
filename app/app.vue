@@ -21,7 +21,8 @@ useHead({
       href: '/assets/files/asad-eisa.pdf',
       title: 'asad eisa CV PDF'
     },
-    { rel: 'canonical', href: 'https://asad-eisa.netlify.app/' }
+    { rel: 'canonical', href: 'https://asad-eisa.netlify.app/' },
+    { rel: 'preconnect', href: 'https://asad-eisa.netlify.app', crossorigin: '' }
   ]
 })
 </script>

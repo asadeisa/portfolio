@@ -104,6 +104,7 @@ useNamedIntersectionObservers([
               <p class="text-sm lg:text-base font-w-300 text-center text-white">Years Exp</p>
             </div>
             <NuxtImg width="500" height="500" preload
+            fetchpriority="high"
               class="rounded-2xl object-cover absolute w-[90%] h-[90%] top-1/2 left-1/2 -translate-1/2"
               alt="my profile pix" src="assets/images/profile/1.png" />
           </section>
