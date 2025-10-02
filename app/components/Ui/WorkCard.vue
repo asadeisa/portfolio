@@ -7,7 +7,7 @@ const {work , index=0 } = defineProps<{work :Work , index? : number}>()
 const cardSection = ref<HTMLElement | null>(null)
 const isCardSectionElVisible  = ref(false)
 useNamedIntersectionObservers([
-  { el: cardSection, visible: isCardSectionElVisible, threshold: 0.4 },
+  { el: cardSection, visible: isCardSectionElVisible, threshold: 0.3 },
 
 ])
 </script>
@@ -15,7 +15,7 @@ useNamedIntersectionObservers([
 
   <div ref="cardSection" :style="{'--i':index}" :class="isCardSectionElVisible ? 'element-in' : 'element-out'"
     class="work-card border fade-in border-border dark:border-gray-700 rounded-lg overflow-hidden bg-white dark:bg-main-dark shadow-sm hover:shadow-md transition-shadow duration-300">
-    <NuxtImg :src="work.image" :alt="work.title" class="w-full h-48 lg:h-56 xl:h-64 object-cover  mb-4" />
+    <NuxtImg :src="work.image" loading="lazy" :alt="work.title" class="w-full h-48 lg:h-56 xl:h-64 object-cover  mb-4" />
     <div class="px-4 md:px-6 lg:px-8 mb-2 lg:mb-3.5">
       <h3 class="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">{{ work.title }}</h3>
       <p class="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-4">{{ work.description }}</p>

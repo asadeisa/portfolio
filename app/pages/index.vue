@@ -10,23 +10,23 @@ const featuredSection = ref<HTMLElement | null>(null)
 const isFeaturedSectionElVisible = ref(false)
 useNamedIntersectionObservers([
   { el: homeSection, visible: isHomeSectionElVisible, threshold: 0.1 },
-  { el: aboutMeSection, visible: isAboutMeSectionElVisible, threshold: 0.4 },
-  { el: skillSection, visible: isSkillSectionElVisible, threshold: 0.5 },
+  { el: aboutMeSection, visible: isAboutMeSectionElVisible, threshold: 0.3 },
+  { el: skillSection, visible: isSkillSectionElVisible, threshold: 0.4 },
   { el: featuredSection, visible: isFeaturedSectionElVisible, threshold: 0.2 },
 ])
 </script>
 <template>
   <div role="main">
-    <ThemeToggle class="fixed top-4 right-4 z-[1000]" />
+    <ThemeToggle class="fixed top-4 right-10 md:right-4 z-[1000]" />
 
     <!-- use the ThemeToggle component in the left of the page top left -->
     <section ref="homeSection" id="home-section"
-      class="px-4 min-h-[60dvh] md:min-h-[80dvh] xl:min-h-screen flex flex-col justify-center items-center transition-colors bg-"
+      class="px-4 min-h-[50dvh] md:min-h-[80dvh] xl:min-h-screen flex flex-col justify-center items-center transition-colors bg-"
       :class="isHomeSectionElVisible ? 'home-section-is-in' : 'home-section-is-out'">
       <div class="flex justify-center mb-3  md:mb-4 xl:mb-6">
 
         <UiGlassCard style="--i:1"
-          class="child-home rounded-4xl border border-border inline-flex w-fit m-auto items-center gap-1 lg:gap-2">
+          class="child-home mt-8 mb-3 rounded-4xl border border-border inline-flex w-fit m-auto items-center gap-1 lg:gap-2">
           <span class="w-[8px] mt-0.5 h-[8px] rounded-full bg-green-600 inline-block">
 
           </span>
@@ -76,7 +76,7 @@ useNamedIntersectionObservers([
         </div>
       </section>
       <section style="--i:7"
-        class=" child-home links  flex items-center gap-4 lg:gap-6 xl:gap-8 text-gray-500 text-xs md:text-sm lg:text-base mt-4 lg:mt-6 xl:mt-9">
+        class=" child-home links  flex items-center gap-4 lg:gap-6 xl:gap-8 text-gray-500 text-xs md:text-sm lg:text-base mt-4 lg:mt-6 xl:mt-9 pb-2 mb-7">
         <a href="https://github.com/asadeisa/portfolio" target="_blank" aria-label="GitHub" class="hover:bg-gray-300 rounded-full  hover:scale-105 transition-all p-2  hover:text-black">
           <SVG name="github"></SVG>
         </a>
@@ -84,7 +84,8 @@ useNamedIntersectionObservers([
           <SVG name="linkedin"></SVG>
         </a>
       </section>
-      <Mouse class="relative"></Mouse>
+      <div class="p-4 md:hidden"></div>
+      <Mouse class="relative "></Mouse>
     </section>
     <section ref="aboutMeSection" id="about-me" class="bg-white dark:bg-dark py-10 lg:py-15 xl:py-20">
       <Container>
@@ -102,7 +103,7 @@ useNamedIntersectionObservers([
               <h2 class="md:text-xl lg:text-2xl font-bold text-center text-white">3 +</h2>
               <p class="text-sm lg:text-base font-w-300 text-center text-white">Years Exp</p>
             </div>
-            <NuxtImg width="500" height="500"
+            <NuxtImg width="500" height="500" preload
               class="rounded-2xl object-cover absolute w-[90%] h-[90%] top-1/2 left-1/2 -translate-1/2"
               alt="my profile pix" src="assets/images/profile/1.png" />
           </section>
@@ -163,7 +164,7 @@ useNamedIntersectionObservers([
     </section>
     <section id="projects" class="py-10 lg:py-15 xl:py-20 bg-white dark:bg-dark">
       <Container>
-        <LazyProjects>
+        <LazyProjects hydrate-when-visible>
           <div ref="featuredSection" :class="isFeaturedSectionElVisible ? 'element-in' : 'element-out'">
 
           <h2 style="--i :1"
@@ -186,7 +187,7 @@ useNamedIntersectionObservers([
     </section>
     <section id="contact" class="py-10 lg:py-15 xl:py-20 bg-main">
       <Container>
-        <LazyContactUs />
+        <LazyContactUs hydrate-when-visible />
       </Container>
 
     </section>

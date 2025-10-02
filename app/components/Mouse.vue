@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="absolute  mouse scale-[0.8] md:scale-100 bottom-[24rem] md:bottom-[14rem] xl:bottom-8 left-1/2 transform -translate-x-1/2" style="opacity: 1;">
+    class="absolute  mouse scale-[0.8] md:scale-100 bottom-[1rem] md:bottom-[6rem] xl:bottom-8 left-1/2 transform -translate-x-1/2" style="opacity: 1;">
     <div  
       class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
       <div  

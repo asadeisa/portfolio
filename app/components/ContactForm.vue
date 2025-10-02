@@ -76,7 +76,7 @@ const closeMessage = () => {
         </UiInput>
       </div>
       <div class="flex justify-center mt-5 xl:mt-8">
-        <UiButtonsPrimary class="text-base rounded-lg w-full items-center flex gap-2 justify-center  lg:text-lg xl:text-xl capitalize"
+        <UiButtonsPrimary class="text-sm md:text-base rounded-lg w-full items-center flex gap-2 justify-center  lg:text-lg xl:text-xl capitalize"
           :class="loading ? 'opacity-30 pointer-events-none' : ''" @click="handleSubmit">
           <SVG name="send"></SVG>
           <span class="font-w-300">
