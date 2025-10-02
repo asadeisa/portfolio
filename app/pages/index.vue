@@ -17,7 +17,7 @@ useNamedIntersectionObservers([
 </script>
 <template>
   <div role="main">
-    <ThemeToggle class="fixed top-4 right-4" />
+    <ThemeToggle class="fixed top-4 right-4 z-[1000]" />
 
     <!-- use the ThemeToggle component in the left of the page top left -->
     <section ref="homeSection" id="home-section"
