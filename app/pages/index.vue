@@ -10,13 +10,13 @@ const featuredSection = ref<HTMLElement | null>(null)
 const isFeaturedSectionElVisible = ref(false)
 useNamedIntersectionObservers([
   { el: homeSection, visible: isHomeSectionElVisible, threshold: 0.1 },
-  { el: aboutMeSection, visible: isAboutMeSectionElVisible, threshold: 0.5 },
+  { el: aboutMeSection, visible: isAboutMeSectionElVisible, threshold: 0.4 },
   { el: skillSection, visible: isSkillSectionElVisible, threshold: 0.5 },
   { el: featuredSection, visible: isFeaturedSectionElVisible, threshold: 0.2 },
 ])
 </script>
 <template>
-  <div>
+  <div role="main">
     <ThemeToggle class="fixed top-4 right-4" />
 
     <!-- use the ThemeToggle component in the left of the page top left -->
@@ -77,7 +77,7 @@ useNamedIntersectionObservers([
       </section>
       <section style="--i:7"
         class=" child-home links  flex items-center gap-4 lg:gap-6 xl:gap-8 text-gray-500 text-xs md:text-sm lg:text-base mt-4 lg:mt-6 xl:mt-9">
-        <a href="#" class="hover:bg-gray-300 rounded-full  hover:scale-105 transition-all p-2  hover:text-black">
+        <a href="https://github.com/asadeisa/portfolio" target="_blank" aria-label="GitHub" class="hover:bg-gray-300 rounded-full  hover:scale-105 transition-all p-2  hover:text-black">
           <SVG name="github"></SVG>
         </a>
         <a href="#" class="hover:bg-gray-300 rounded-full  hover:scale-105 transition-all p-2  hover:text-black">
