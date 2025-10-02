@@ -61,7 +61,7 @@ useNamedIntersectionObservers([
         </UiButtonsWhite>
       </div>
       <section style="--i:6"
-        class="child-home contact flex gap-x-7 gap-y-3 lg:gap-4.5 xl:gap-6 text-gray-500 text-xs md:text-sm lg:text-base flex-wrap justify-center">
+        class="child-home contact flex gap-x-7 gap-y-3 lg:gap-4.5 xl:gap-6 text-gray-600 dark:text-gray-400 text-xs md:text-sm lg:text-base flex-wrap justify-center">
         <div class="phone flex gap-1 items-center">
           <SVG name="phone"></SVG>
           <span>(+963) 997 437 142</span>
