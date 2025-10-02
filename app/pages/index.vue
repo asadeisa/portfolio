@@ -17,7 +17,7 @@ useNamedIntersectionObservers([
 </script>
 <template>
   <div role="main">
-    <ThemeToggle class="fixed top-4 right-10 md:right-4 z-[1000]" />
+    <ThemeToggle class="fixed top-4 right-0 -translate-x-full z-[1000] mr-2 md:mr-1" />
 
     <!-- use the ThemeToggle component in the left of the page top left -->
     <section ref="homeSection" id="home-section"
@@ -39,9 +39,9 @@ useNamedIntersectionObservers([
         class=" child-home text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-w-300 mb-4 text-[#19317d] dark:text-gray-100">
         Asad
         Eisa</h1>
-      <h5 style="--i:3" class="child-home text-xl lg:text-2xl xl:text-3xl font-w-300 mb-3 md:mb-4 xl:mb-7">
+      <p style="--i:3" class="child-home text-xl lg:text-2xl xl:text-3xl font-w-300 mb-3 md:mb-4 xl:mb-7">
         Frontend Developer
-      </h5>
+      </p>
       <p style="--i : 4"
         class="child-home text-sm lg:text-base xl:text-lg text-gray-700 dark:text-gray-300 max-w-xl text-balance text-center md:min-w-[700px] xl:min-w-[800px]">
         Specialized in Nuxt.js & Vue.js • Crafting exceptional digital experiences with modern web technologies and
@@ -80,7 +80,7 @@ useNamedIntersectionObservers([
         <a href="https://github.com/asadeisa/portfolio" target="_blank" aria-label="GitHub" class="hover:bg-gray-300 rounded-full  hover:scale-105 transition-all p-2  hover:text-black">
           <SVG name="github"></SVG>
         </a>
-        <a href="#" class="hover:bg-gray-300 rounded-full  hover:scale-105 transition-all p-2  hover:text-black">
+        <a href="#" class="hover:bg-gray-300 rounded-full  hover:scale-105 transition-all p-2  hover:text-black" aria-label="linkedin">
           <SVG name="linkedin"></SVG>
         </a>
       </section>

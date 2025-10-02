@@ -1,7 +1,9 @@
 <template>
   <ClientOnly>
-    <div :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
-      <button @click="() => toggleTheme()"
+    <div >
+      <button @click="()=>toggleTheme()"
+      :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+        :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
         class="p-2 md:p-2.5 lg:p-3 xl:p-3.5 rounded-full focus:outline-none border border-border dark:border-gray-700 bg-gray dark:bg-gray-800 text-gray-800 dark:text-gray-100 transition-colors dark:hover:bg-gray-700 dark:hover:border-gray-500">
 
         <span v-if="isDark" class="hover:rotate-360">
@@ -45,6 +47,12 @@
 <script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core';
 
-const isDark = useDark() ;
+const isDark = useDark({
+  storageKey: 'theme',
+  valueDark: 'dark',
+  valueLight: 'light',
+  initialValue: 'dark', // default to dark on first load
+})
+
 const toggleTheme = useToggle(isDark);
 </script>

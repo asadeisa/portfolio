@@ -58,20 +58,20 @@ const closeMessage = () => {
     <Card class="max-w-[90vw] lg:max-w-[700px] m-auto ">
       <input type="hidden" name="_captcha" value="false">
       <div class="flex flex-col gap-1 lg:gap-1.5 xl:gap-2 mb-3 lg:mb-4 xl:mb-5">
-        <label class="text-sm lg:text-base capitalize">name</label>
-        <UiInput v-model="name">
+        <label for="name" class="text-sm lg:text-base capitalize">name</label>
+        <UiInput id="name" v-model="name">
 
         </UiInput>
       </div>
       <div class="flex flex-col gap-1 lg:gap-1.5 xl:gap-2 mb-3 lg:mb-4 xl:mb-5">
-        <label class="text-sm lg:text-base capitalize  ">Email</label>
-        <UiInput v-model="email">
+        <label for="email" class="text-sm lg:text-base capitalize  ">Email</label>
+        <UiInput id="email" v-model="email">
 
         </UiInput>
       </div>
       <div class="flex flex-col gap-1 lg:gap-1.5 xl:gap-2 mb-3 lg:mb-4 xl:mb-5">
-        <label class="text-sm lg:text-base capitalize  ">Message</label>
-        <UiInput type="textarea" v-model="message">
+        <label class="text-sm lg:text-base capitalize  " for="textarea-message">Message</label>
+        <UiInput type="textarea" id="textarea-message" v-model="message">
 
         </UiInput>
       </div>
