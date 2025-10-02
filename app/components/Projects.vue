@@ -57,28 +57,22 @@ const works: Work[] = [
 
   },
 ]
+
 </script>
 
 <template>
   <div>
-    <h2 class="font-w-300 flex w-full justify-center items-center gap-2 text-3xl md:text-4xl xl:text-5xl text-center mb-5 xl:mb-7">
-      <SVG class="star-svg" name="star"></SVG>
-      <span>
-        Featured Projects
-
-      </span>
-      <SVG class="star-svg" name="star"></SVG>
-    </h2>
-    <p class="text-sm md:text-base xl:text-lg text-center max-w-[700px] m-auto text-gray-700 dark:text-gray-200">
-      A showcase of my recent work, featuring modern web applications built with cutting-edge technologies
-    </p>
+    <slot></slot>
+    
     <!-- make it grid and in xl screen set 3 item in the one row and handel it in sm and other screen -->
 
     <div class="grid my-6 md:my-10 grid-cols-1 sm:grid-cols-2 sm:px-4 md:px-15 lg:px-0 lg:grid-cols-3 gap-7">
-      <UiWorkCard
-        v-for="work in works"
+      <UiWorkCard 
+
+        v-for="(work , index) in works"
         :key="work.id"
         :work="work"
+        :index="index"
         class="max-w-[85vw] xs:max-w-[70vw] mx-auto sm:max-w-[500px]"
         />
      </div> 

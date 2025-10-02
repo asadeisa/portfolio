@@ -31,3 +31,57 @@
   height: calc(13px + .7vw);
 
 }
+/* animation of the home section */
+.child-home  {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 0.8s ease-in-out forwards;
+  animation-delay: calc(0.1s * var(--i));
+}
+.home-section-is-in  {
+  animation: fadeInUp 0.8s ease-in-out forwards;
+}
+.home-section-is-out {
+  opacity: 0;
+  transform: translateY(40px);
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
+/* about me animation  */
+.left-section , .right-section{
+  transition: all ease-in .8s;
+  opacity: 0;
+}
+.left-section {
+ transform: translateX(-40px);
+}
+ .right-section{
+  transform: translateX(40px);
+  opacity: 0;
+}
+ .element-in .left-section , .element-in .right-section {
+  transform: translateX(0);
+  opacity: 1;
+}
+.fade-in{
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all ease-in .8s;
+}
+.element-in .fade-in , .element-in.fade-in{
+  transition-duration: calc(0.4s * var(--i));
+  opacity: 1;
+  transform: translateY(0);
+}
+.skill-progress{
+  width: 0;
+  transition: width 1.5s ease-in-out;
+}
+.element-in  .skill-progress{
+  width: var(--w) ;
+  transition-delay: calc(0.2s * var(--s));
+}
