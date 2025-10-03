@@ -80,7 +80,7 @@ useNamedIntersectionObservers([
         <a href="https://github.com/asadeisa/portfolio" target="_blank" aria-label="GitHub" class="hover:bg-gray-300 rounded-full  hover:scale-105 transition-all p-2  hover:text-black">
           <SVG name="github"></SVG>
         </a>
-        <a href="#" class="hover:bg-gray-300 rounded-full  hover:scale-105 transition-all p-2  hover:text-black" aria-label="linkedin">
+        <a href="https://www.linkedin.com/in/asad-eisa" target="_blank" class="hover:bg-gray-300 rounded-full  hover:scale-105 transition-all p-2  hover:text-black" aria-label="linkedin">
           <SVG name="linkedin"></SVG>
         </a>
       </section>

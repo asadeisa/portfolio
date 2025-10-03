@@ -8,7 +8,7 @@ useHead({
     },
     {
       name: 'keywords',
-      content: 'Asad Eisa, frontend developer, Nuxt.js, Vue.js, web developer, portfolio, UI/UX, SEO, JavaScript, TypeScript, web performance, SSR, responsive design, Tartus, Syria, download CV, modern web, scalable apps'
+      content: 'Asad Eisa, frontend developer, Nuxt.js, Vue.js, web developer, portfolio, UI/UX, SEO, JavaScript, TypeScript, web performance, SSR, responsive design, Tartus, Syria, download CV, modern web, scalable apps ,asad eisa , اسد عيسى , مطور واجة امامية , مطور ويب , نكست جي اس , فيو جي اس , مطور نكست , مطور فيو , مطور فرونت اند'
     },
     { property: 'og:title', content: 'Asad Eisa – Frontend Developer' },
     { property: 'og:description', content: 'Portfolio showcasing Nuxt.js, Vue.js, and SEO projects.' },
