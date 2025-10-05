@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useNamedIntersectionObservers } from '~/composables/useNamedIntersectionObserver'
-const homeSection = ref<HTMLElement | null>(null)
-const isHomeSectionElVisible = ref(false)
+// const homeSection = ref<HTMLElement | null>(null)
+// const isHomeSectionElVisible = ref(false)
 const aboutMeSection = ref<HTMLElement | null>(null)
 const isAboutMeSectionElVisible = ref(false)
 const skillSection = ref<HTMLElement | null>(null)
@@ -9,7 +9,7 @@ const isSkillSectionElVisible = ref(false)
 const featuredSection = ref<HTMLElement | null>(null)
 const isFeaturedSectionElVisible = ref(false)
 useNamedIntersectionObservers([
-  { el: homeSection, visible: isHomeSectionElVisible, threshold: 0.1 },
+  // { el: homeSection, visible: isHomeSectionElVisible, threshold: 0.1 },
   { el: aboutMeSection, visible: isAboutMeSectionElVisible, threshold: 0.3 },
   { el: skillSection, visible: isSkillSectionElVisible, threshold: 0.4 },
   { el: featuredSection, visible: isFeaturedSectionElVisible, threshold: 0.2 },
@@ -22,7 +22,7 @@ useNamedIntersectionObservers([
     <!-- use the ThemeToggle component in the left of the page top left -->
     <section ref="homeSection" id="home-section"
       class="px-4 min-h-[50dvh] md:min-h-[80dvh] xl:min-h-screen flex flex-col justify-center items-center transition-colors bg-"
-      :class="isHomeSectionElVisible ? 'home-section-is-in' : 'home-section-is-out'">
+      :class="true ? 'home-section-is-in' : 'home-section-is-out'">
       <div class="flex justify-center mb-3  md:mb-4 xl:mb-6">
 
         <UiGlassCard style="--i:1"
