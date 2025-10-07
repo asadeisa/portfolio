@@ -67,7 +67,7 @@ const works: Work[] = [
     <!-- make it grid and in xl screen set 3 item in the one row and handel it in sm and other screen -->
 
     <div class="grid my-6 md:my-10 grid-cols-1 sm:grid-cols-2 sm:px-4 md:px-15 lg:px-0 lg:grid-cols-3 gap-7">
-      <UiWorkCard 
+      <LazyUiWorkCard hydrate-on-visible 
 
         v-for="(work , index) in works"
         :key="work.id"

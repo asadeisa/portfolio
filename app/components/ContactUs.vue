@@ -67,12 +67,12 @@ useNamedIntersectionObservers([
           </div>
         </div>
         <div class="px-2 mt-6 xl:mt-10">
-          <UiButtonsPrimary button-type="link"
+          <LazyUiButtonsPrimary button-type="link" hydrate-on-visible 
             class="flex items-center w-full rounded-4xl gap-2 lg:gap-3 xl:gap-4 justify-center  text-sm md:text-base lg:text-lg"
             href="/assets/files/asad-eisa.pdf" download="asad-eisa.pdf" aria-label="Download the asad eisa cv as a PDF">
             <SVG name="download"></SVG>
             <span>Download My Resume</span>
-          </UiButtonsPrimary>
+          </LazyUiButtonsPrimary>
         </div>
       </section>
       <section class="flex-1 right-section">

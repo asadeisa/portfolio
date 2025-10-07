@@ -17,7 +17,7 @@ useNamedIntersectionObservers([
 </script>
 <template>
   <div role="main">
-    <ThemeToggle class="fixed top-4 right-0 -translate-x-full z-[1000] mr-2 md:mr-1" />
+    <ThemeToggle  class="fixed top-4 right-0 -translate-x-full z-[1000] mr-2 md:mr-1" />
 
     <!-- use the ThemeToggle component in the left of the page top left -->
     <section ref="homeSection" id="home-section"
@@ -141,7 +141,7 @@ useNamedIntersectionObservers([
 
             </div>
             <div>
-              <UiButtonsPrimary button-type="link"
+              <LazyUiButtonsPrimary button-type="link" hydrate-on-idle
                 class="mt-6 flex w-fit rounded-4xl items-center gap-2 text-sm lg:text-base"
                 href="/assets/files/asad-eisa.pdf" download="asad-eisa.pdf"
                 aria-label="Download the asad eisa cv as a PDF">
@@ -150,7 +150,7 @@ useNamedIntersectionObservers([
                   Download My CV
 
                 </span>
-              </UiButtonsPrimary>
+              </LazyUiButtonsPrimary>
             </div>
 
           </section>
@@ -159,13 +159,13 @@ useNamedIntersectionObservers([
     </section>
     <section ref="skillSection" id="skills" class="py-10 lg:py-15 xl:py-20 bg-gray-50 dark:bg-gray-900">
       <Container :class="isSkillSectionElVisible ? 'element-in' : 'element-out'">
-        <LazySkills />
+        <LazySkills hydrate-on-idle />
 
       </Container>
     </section>
     <section id="projects" class="py-10 lg:py-15 xl:py-20 bg-white dark:bg-dark">
       <Container>
-        <LazyProjects hydrate-when-visible>
+        <LazyProjects hydrate-on-visible>
           <div ref="featuredSection" :class="isFeaturedSectionElVisible ? 'element-in' : 'element-out'">
 
           <h2 style="--i :1"
@@ -188,7 +188,7 @@ useNamedIntersectionObservers([
     </section>
     <section id="contact" class="py-10 lg:py-15 xl:py-20 bg-main">
       <Container>
-        <LazyContactUs hydrate-when-visible />
+        <LazyContactUs hydrate-on-visible />
       </Container>
 
     </section>
