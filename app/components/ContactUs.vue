@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { email } from '~/composables/useInfo'
 import { useNamedIntersectionObservers } from '~/composables/useNamedIntersectionObserver'
 const contactSection = ref<HTMLElement | null>(null)
 const isContactSectionElVisible = ref(false)
@@ -43,7 +44,7 @@ useNamedIntersectionObservers([
           </div>
 
           <div class="flex items-center gap-2 md:gap-3 connect-footer-icon ">
-            <a href="mailto:asadeisa232@gmail.com" target="_blank" aria-label="Send me an email">
+            <a :href="'mailto:'+email" target="_blank" aria-label="Send me an email">
               <span
                 class="grid items-center place-items-center rounded-full  to-teal-600 from-blue-600 bg-gradient-to-r p-3.5 lg:p-4 xl:p-5 ">
                 <SVG class="text-white " name="mail"></SVG>
@@ -52,7 +53,7 @@ useNamedIntersectionObservers([
             </a>
             <div>
               <p class="text-sm lg:text-base">email</p>
-              <p class="text-gray-600 text-sm dark:text-gray-300">asadeisa232@gmail.com</p>
+              <p class="text-gray-600 text-sm dark:text-gray-300">{{ email }}</p>
             </div>
           </div>
           <div class="flex items-center gap-2 md:gap-3 connect-footer-icon ">
@@ -71,7 +72,7 @@ useNamedIntersectionObservers([
             class="flex items-center w-full rounded-4xl gap-2 lg:gap-3 xl:gap-4 justify-center  text-sm md:text-base lg:text-lg"
             href="/assets/files/asad-eisa.pdf" download="asad-eisa.pdf" aria-label="Download the asad eisa cv as a PDF">
             <SVG name="download"></SVG>
-            <span>Download My Resume</span>
+            <span>Download My CV</span>
           </LazyUiButtonsPrimary>
         </div>
       </section>

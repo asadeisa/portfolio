@@ -1,0 +1,1 @@
+export const email = "asad.eisa.dev@gmail.com";

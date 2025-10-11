@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useNamedIntersectionObservers } from '~/composables/useNamedIntersectionObserver'
+import { useBreakpoints } from '@vueuse/core'
+import { email } from '~/composables/useInfo'
 // const homeSection = ref<HTMLElement | null>(null)
 // const isHomeSectionElVisible = ref(false)
 const aboutMeSection = ref<HTMLElement | null>(null)
@@ -14,14 +16,29 @@ useNamedIntersectionObservers([
   { el: skillSection, visible: isSkillSectionElVisible, threshold: 0.4 },
   { el: featuredSection, visible: isFeaturedSectionElVisible, threshold: 0.2 },
 ])
+const breakpoints = useBreakpoints({
+  md: 768, // This breakpoint matches Tailwind's 'md:' class
+})
+const isSmallScreen = ref(false)
+// onMounted(()=>{
+
+//   if(import.meta.client){
+//     isSmallScreen.value = breakpoints.smaller('md').value
+//   } 
+
+// })
+// watch(breakpoints.smaller('md'), () => {
+//   isSmallScreen.value = breakpoints.smaller('md').value
+// })
 </script>
 <template>
   <div role="main">
+
     <ThemeToggle  class="fixed top-4 right-0 -translate-x-full z-[1000] mr-2 md:mr-1" />
 
     <!-- use the ThemeToggle component in the left of the page top left -->
     <section ref="homeSection" id="home-section"
-      class="px-4 min-h-[50dvh] md:min-h-[80dvh] xl:min-h-screen flex flex-col justify-center items-center transition-colors bg-"
+      class="px-4 min-h-[50dvh] md:min-h-[80dvh] lg:min-h-[90dvh] xl:min-h-screen flex flex-col justify-center items-center transition-colors "
       :class="true ? 'home-section-is-in' : 'home-section-is-out'">
       <div class="flex justify-center mb-3  md:mb-4 xl:mb-6">
 
@@ -54,7 +71,7 @@ useNamedIntersectionObservers([
           <SVG name="download"></SVG>
           Download CV
         </UiButtonsPrimary>
-        <UiButtonsWhite button-type="link" href="mailto:asadeisa232@gmail.com" target="_blank"
+        <UiButtonsWhite button-type="link" :href="'mailto:'+email" target="_blank"
           aria-label="Send me an email" class="flex items-center gap-2 lg:gap-3  text-sm md:text-base xl:text-lg">
           <SVG name="mail"></SVG>
           Get In Touch
@@ -68,7 +85,7 @@ useNamedIntersectionObservers([
         </div>
         <div class="mail flex gap-1 items-center">
           <SVG name="mail"></SVG>
-          <span>asadeisa232@gmail.com</span>
+          <span>{{ email }}</span>
         </div>
         <div class="mail flex gap-1 items-center">
           <SVG name="location"></SVG>
@@ -85,13 +102,14 @@ useNamedIntersectionObservers([
         </a>
       </section>
       <div class="p-4 md:hidden"></div>
-      <Mouse class="relative "></Mouse>
+      
+      <LazyMouse  :hydrate-on-idle="5500"  class="relative "></LazyMouse>
     </section>
     <section ref="aboutMeSection" id="about-me" class="bg-white dark:bg-dark py-10 lg:py-15 xl:py-20">
       <Container>
 
         <div class="flex flex-col md:flex-row gap-4 md:gap-10 xl:gap-15  items-center"
-          :class="isAboutMeSectionElVisible ? 'element-in' : 'element-out'">
+          :class="(isAboutMeSectionElVisible== true || isSmallScreen)? 'element-in' : 'element-out'">
 
           <!-- make animation more slow and wait the element to full enter then applay -->
 
@@ -106,7 +124,7 @@ useNamedIntersectionObservers([
             <NuxtImg width="500" height="500" preload
             fetchpriority="high"
               class="rounded-2xl object-cover absolute w-[90%] h-[90%] top-1/2 left-1/2 -translate-1/2"
-              alt="my profile pix" src="assets/images/profile/1.png" />
+              alt="my profile" src="assets/images/profile/1.png" />
           </section>
 
           <section class="right-section flex-1 h-fit p-4 md:p-0 ">
@@ -132,7 +150,7 @@ useNamedIntersectionObservers([
               </section>
               <section class="flex items-center gap-2 w-[60%] lg:w-[45%]">
                 <SVG name="mail" class="text-accent"></SVG>
-                <span class="text-gray-700 dark:text-gray-200 text-sm lg:text-base">asadeisa232@gmail.com</span>
+                <span class="text-gray-700 dark:text-gray-200 text-sm lg:text-base">{{ email }}</span>
               </section>
               <section class="flex items-center gap-2">
                 <SVG name="calendar" class="text-accent"></SVG>
@@ -141,7 +159,7 @@ useNamedIntersectionObservers([
 
             </div>
             <div>
-              <LazyUiButtonsPrimary button-type="link" hydrate-on-idle
+              <!-- <LazyUiButtonsPrimary button-type="link" hydrate-on-idle
                 class="mt-6 flex w-fit rounded-4xl items-center gap-2 text-sm lg:text-base"
                 href="/assets/files/asad-eisa.pdf" download="asad-eisa.pdf"
                 aria-label="Download the asad eisa cv as a PDF">
@@ -150,7 +168,7 @@ useNamedIntersectionObservers([
                   Download My CV
 
                 </span>
-              </LazyUiButtonsPrimary>
+              </LazyUiButtonsPrimary> -->
             </div>
 
           </section>
@@ -165,7 +183,7 @@ useNamedIntersectionObservers([
     </section>
     <section id="projects" class="py-10 lg:py-15 xl:py-20 bg-white dark:bg-dark">
       <Container>
-        <LazyProjects hydrate-on-visible>
+        <LazyProjects hydrate-on-idle>
           <div ref="featuredSection" :class="isFeaturedSectionElVisible ? 'element-in' : 'element-out'">
 
           <h2 style="--i :1"
@@ -188,7 +206,7 @@ useNamedIntersectionObservers([
     </section>
     <section id="contact" class="py-10 lg:py-15 xl:py-20 bg-main">
       <Container>
-        <LazyContactUs hydrate-on-visible />
+        <LazyContactUs hydrate-on-idle />
       </Container>
 
     </section>

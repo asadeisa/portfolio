@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { email as myEmail } from '~/composables/useInfo'
+
 const name = ref('')
 const email = ref('')
 const message = ref('')
@@ -24,7 +26,7 @@ const handleSubmit = async () => {
 
   try {
     loading.value = true
-    const res = await fetch('https://formsubmit.co/asadeisa3333@gmail.com', {
+    const res = await fetch('https://formsubmit.co/'+myEmail, {
       method: 'POST',
       body: formData,
       headers: {
@@ -59,24 +61,24 @@ const closeMessage = () => {
       <input type="hidden" name="_captcha" value="false">
       <div class="flex flex-col gap-1 lg:gap-1.5 xl:gap-2 mb-3 lg:mb-4 xl:mb-5">
         <label for="name" class="text-sm lg:text-base capitalize">name</label>
-        <LazyUiInput hydrate-on-visible id="name" v-model="name">
+        <LazyUiInput :hydrate-on-idle="5000" id="name" v-model="name">
 
         </LazyUiInput>
       </div>
       <div class="flex flex-col gap-1 lg:gap-1.5 xl:gap-2 mb-3 lg:mb-4 xl:mb-5">
         <label for="email" class="text-sm lg:text-base capitalize  ">Email</label>
-        <LazyUiInput hydrate-on-visible id="email" v-model="email">
+        <LazyUiInput :hydrate-on-idle="5000" id="email" v-model="email">
 
         </LazyUiInput>
       </div>
       <div class="flex flex-col gap-1 lg:gap-1.5 xl:gap-2 mb-3 lg:mb-4 xl:mb-5">
         <label class="text-sm lg:text-base capitalize  " for="textarea-message">Message</label>
-        <LazyUiInput hydrate-on-visible type="textarea" id="textarea-message" v-model="message">
+        <LazyUiInput :hydrate-on-idle="5000" type="textarea" id="textarea-message" v-model="message">
 
         </LazyUiInput>
       </div>
       <div class="flex justify-center mt-5 xl:mt-8">
-        <LazyUiButtonsPrimary hydrate-on-visible class="text-sm md:text-base rounded-lg w-full items-center flex gap-2 justify-center  lg:text-lg xl:text-xl capitalize"
+        <LazyUiButtonsPrimary :hydrate-on-idle="5000" class="text-sm md:text-base rounded-lg w-full items-center flex gap-2 justify-center  lg:text-lg xl:text-xl capitalize"
           :class="loading ? 'opacity-30 pointer-events-none' : ''" @click="handleSubmit">
           <SVG name="send"></SVG>
           <span class="font-w-300">
@@ -87,13 +89,13 @@ const closeMessage = () => {
       </div>
       <Transition name="fade-slide">
 
-        <LazyUiMessageError hydrate-on-visible class="mt-2 xl:mt-3" v-if="statusType == 'error'" :key="status + Date.now()"
+        <LazyUiMessageError :hydrate-on-idle="5000" class="mt-2 xl:mt-3" v-if="statusType == 'error'" :key="status + Date.now()"
           @close="closeMessage">
           {{ status }}
         </LazyUiMessageError>
       </Transition>
       <Transition name="fade-slide">
-        <LazyUiMessageSuccess hydrate-on-visible class="mt-2 xl:mt-3" v-if="statusType === 'success'" @close="closeMessage"
+        <LazyUiMessageSuccess :hydrate-on-idle="5000" class="mt-2 xl:mt-3" v-if="statusType === 'success'" @close="closeMessage"
           :key="status + Date.now()">
           {{ status }}
         </LazyUiMessageSuccess>
